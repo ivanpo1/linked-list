@@ -75,7 +75,7 @@ class LinkedList {
             }
         }
 
-        return currentNode.value;
+        return currentNode;
     }
 
     pop() {
@@ -136,6 +136,52 @@ class LinkedList {
         return concat + 'null'
     }
 
+    insertAt(value, index) {
+        if (index === 0) {
+            this.prepend(value);
+            return;
+        }
+
+        let currentNode = this.head;
+        let currentIndex = 0;
+
+        while (currentNode && currentIndex < index - 1) {
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+
+        if (!currentNode) {
+            console.log("Index out of bounds");
+            return;
+        }
+
+        const newNode = new Node(value, currentNode.next)
+        currentNode.next = newNode;
+
+
+        // currentNode.next = value;
+        // currentNode.next = currentNode.next.next;
+
+    }
+
+    removeAt(index) {
+        let currentNode = this.head;
+        let currentIndex = 0;
+
+        while (currentNode && currentIndex < index - 1) {
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+
+        if (!currentNode || !currentNode.next) {
+            console.log("Index out of bounds");
+            return;
+        }
+
+        currentNode.next = currentNode.next.next
+
+    }
+
 }
 
 class Node {
@@ -145,24 +191,5 @@ class Node {
     }
 }
 
-const list = new LinkedList();
 
-list.append("dog");
-list.append("cat");
-list.append("parrot");
-list.append("hamster");
-list.append("snake");
-list.append("turtle");
-
-console.log(list.toString())
-
-console.log('Index:', list.find('hamster'))
-console.log('Number of Nodes:', list.size());
-list.prepend('testing')
-console.log('head', list.head)
-
-console.log(list.toString())
-
-list.pop()
-console.log(list.toString())
-
+export default LinkedList;
