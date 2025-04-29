@@ -14,13 +14,10 @@ console.log(list.toString())
 console.log('Index:', list.find('hamster'))
 console.log('Number of Nodes:', list.size());
 list.prepend('testing')
-console.log('head', list.head)
 
 console.log(list.toString())
 
 list.pop()
-console.log(list.toString())
-
 list.removeAt(4)
 
 console.log(list.toString())
@@ -37,3 +34,6 @@ console.log(list.at(2))
 
 console.log(list.tail)
 console.log(list.nodeHead)
+list.pop()
+list.pop()
+console.log('Number of Nodes:', list.size());

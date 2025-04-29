@@ -46,13 +46,13 @@ class LinkedList {
         return size;
     }
 
-    get Head() {
+    get nodeHead() {
         if (!this.head) return;
 
         return this.head;
     }
 
-    tail() {
+    get tail() {
         let currentNode = this.head;
 
         while (currentNode && currentNode.next) {
@@ -157,10 +157,6 @@ class LinkedList {
 
         const newNode = new Node(value, currentNode.next)
         currentNode.next = newNode;
-
-
-        // currentNode.next = value;
-        // currentNode.next = currentNode.next.next;
 
     }
 
